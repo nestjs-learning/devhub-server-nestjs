@@ -5,6 +5,39 @@
     "removeComments": true,
     "strictPropertyInitialization": false,
     "sourceMap": true,
-    "newLine": "LF"
+    "newLine": "LF",
+    "baseUrl": "./",
+    "paths": {
+      "@libs/core": [
+        "libs/core/src"
+      ],
+      "@libs/core/*": [
+        "libs/core/src/*"
+      ],
+      "@libs/common": [
+        "libs/common/src"
+      ],
+      "@libs/common/*": [
+        "libs/common/src/*"
+      ],
+      "@libs/db": [
+        "libs/db/src"
+      ],
+      "@libs/db/*": [
+        "libs/db/src/*"
+      ],
+      "@libs/config": [
+        "libs/config/src"
+      ],
+      "@libs/config/*": [
+        "libs/config/src/*"
+      ],
+      "@libs/service": [
+        "libs/service/src"
+      ],
+      "@libs/service/*": [
+        "libs/service/src/*"
+      ]
+    }
   }
 }

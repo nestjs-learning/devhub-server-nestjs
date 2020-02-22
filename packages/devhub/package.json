@@ -7,7 +7,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "format": "prettier --write \\\"packages/devhub/src/**/*.ts\\\" \\\"test/**/*.ts\\\"",
+    "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
     "dev": "nodemon",
     "start:debug": "nodemon --config nodemon-debug.json",
@@ -18,11 +18,12 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config test/jest-e2e.json",
+    "test:e2e": "jest --config apps/devhub-server/test/jest-e2e.json",
     "webpack": "webpack --config webpack.config.js"
   },
   "dependencies": {
     "@nestjs/common": "^6.7.2",
+    "@nestjs/config": "^0.2.3",
     "@nestjs/core": "^6.7.2",
     "@nestjs/graphql": "^6.5.4",
     "@nestjs/jwt": "^6.1.1",
@@ -89,13 +90,29 @@
       "json",
       "ts"
     ],
-    "rootDir": "src",
+    "rootDir": ".",
     "testRegex": ".spec.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "coverageDirectory": "./coverage",
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/apps/",
+      "<rootDir>/libs/"
+    ],
+    "moduleNameMapper": {
+      "@core/core/(.*)": "<rootDir>/libs/core/src/$1",
+      "@core/core": "<rootDir>/libs/core/src",
+      "@libs/common/(.*)": "<rootDir>/libs/common/src/$1",
+      "@libs/common": "<rootDir>/libs/common/src",
+      "@libs/db/(.*)": "<rootDir>/libs/db/src/$1",
+      "@libs/db": "<rootDir>/libs/db/src",
+      "@libs/config/(.*)": "<rootDir>/libs/config/src/$1",
+      "@libs/config": "<rootDir>/libs/config/src",
+      "@libs/service/(.*)": "<rootDir>/libs/service/src/$1",
+      "@libs/service": "<rootDir>/libs/service/src"
+    }
   },
   "mikro-orm": {
     "useTsNode": true,

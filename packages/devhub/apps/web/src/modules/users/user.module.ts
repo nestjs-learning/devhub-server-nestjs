@@ -5,10 +5,10 @@ import {UserService} from './user.service';
 import {UserResolver} from './resolvers/user.resolver';
 
 @Module({
-  imports: [ OrmModule ],
+  // imports: [ OrmModule ],
   controllers: [ UserController ],
-  providers: [ UserService, UserResolver ],
-  exports: [ UserService ],
+  // providers: [ UserService, UserResolver ],
+  // exports: [ UserService ],
 })
 export class UserModule {
 }
