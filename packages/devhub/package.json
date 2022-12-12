@@ -28,7 +28,7 @@
     "@nestjs/graphql": "^6.5.4",
     "@nestjs/jwt": "^6.1.1",
     "@nestjs/passport": "^6.1.1",
-    "@nestjs/platform-express": "^6.7.2",
+    "@nestjs/platform-express": "^9.2.1",
     "@nestjs/swagger": "^4.2.11",
     "@types/lodash": "^4.14.149",
     "apollo-server-core": "^2.10.1",
